@@ -1,13 +1,9 @@
 import 'dart:async';
-import 'dart:math' as math;
 
-import 'package:extract_palette_from_image/scheme_preview.dart';
 import 'package:flutter/material.dart';
 
 import 'package:palette_generator/palette_generator.dart';
-import 'image_colors.dart';
 import 'palette_swatch.dart';
-import 'utils.dart';
 import 'constants.dart';
 
 @immutable

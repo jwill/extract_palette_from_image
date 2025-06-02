@@ -4,12 +4,12 @@ import '../color_box.dart';
 
 class SchemePreview extends StatefulWidget {
   const SchemePreview({
-    Key? key,
+    super.key,
     required this.label,
     required this.scheme,
     required this.brightness,
     required this.seed,
-  }) : super(key: key);
+  });
 
   final String label;
   final Color seed;
@@ -310,7 +310,7 @@ class _SchemePreviewState extends State<SchemePreview> {
                             label: 'On Surface Var.',
                             tone: dark ? 'NV-90' : 'NV-30',
                             color: scheme.onSurfaceVariant,
-                            onColor: scheme.surfaceVariant,
+                            onColor: scheme.surfaceContainerHighest,
                             height: 40,
                             width: 158.59,
                           ),

@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 class MaterialIcon extends StatelessWidget {
   const MaterialIcon(
       this.icon, {
-        Key? key,
+        super.key,
         this.size = 24,
         this.color,
-      }) : super(key: key);
+      });
 
   final IconData icon;
   final double size;

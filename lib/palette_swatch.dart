@@ -1,7 +1,5 @@
-import 'dart:async';
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
-import 'dart:ui';
 import './constants.dart';
 import 'package:palette_generator/palette_generator.dart';
 

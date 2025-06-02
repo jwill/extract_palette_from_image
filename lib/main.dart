@@ -2,21 +2,14 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'dart:async';
-import 'dart:math' as math;
 
 import 'package:extract_palette_from_image/image.dart';
 import 'package:extract_palette_from_image/scheme_preview.dart';
 import 'package:flutter/material.dart';
 
-import 'package:palette_generator/palette_generator.dart';
-import 'package:signals_flutter/signals_core.dart';
 import 'package:signals_flutter/signals_flutter.dart';
-import 'color_box.dart';
 import 'image_colors.dart';
-import 'palette_swatch.dart';
 import 'utils.dart';
-import 'constants.dart';
 
 void main() => runApp(const MyApp());
 

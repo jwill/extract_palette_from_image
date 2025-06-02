@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'dart:ui';
 
 /// Converts a [Color] into a #RRGGBB string.
 extension ColorUtils on Color {
