@@ -32,11 +32,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final imageName = 'assets/pascal-debrunner-vwFvhJf6u_I-unsplash.png';
+    //final imageName = 'assets/aaron-burden-pLHxwd746JU-unsplash.jpg';
     getColorsFromImage(AssetImage(imageName)).then((c) {
       colors.value = c;
-      scheme.value = ColorScheme.fromSeed(seedColor: c[0],
-      dynamicSchemeVariant: DynamicSchemeVariant.tonalSpot
-      );
+      scheme.value = ColorScheme.fromSeed(seedColor: c[0]);
     });
 
     return MaterialApp(
@@ -46,53 +45,58 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(title: Text("Palette Demo")),
         body: Center(
           child: SingleChildScrollView(
-            child: Column(
+            child: Row(
               children: [
+                SizedBox(width: 64),
                 ImageColors(
                   title: 'Image Colors',
                   image: AssetImage(imageName),
-                  imageSize: Size(256.0, 170.0),
+                  imageSize: Size(500.0, 250.0),
                 ),
                 SizedBox(height: 16),
                 Divider(height: 2.0),
-                SizedBox(height: 16),
+                SizedBox(width: 64),
 
-                SizedBox(
-                  width: 350,
-                  height: 100,
-                  child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: colors.value.length,
-                    itemBuilder: (BuildContext context, int index) {
-                      return Row(
-                        children: [
-                          Container(
-                            height: 64,
-                            color: colors.value[index],
-                            child: Padding(
-                              padding: EdgeInsets.all(8.0),
-                              child: Center(
-                                child: Text(
-                                  'Color $index',
-                                  style: TextStyle(
-                                    color: colors.value[index].onColor(),
+                Column(
+                  children: [
+                    SizedBox(
+                      width: 350,
+                      height: 100,
+                      child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: colors.value.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          return Row(
+                            children: [
+                              Container(
+                                height: 64,
+                                color: colors.value[index],
+                                child: Padding(
+                                  padding: EdgeInsets.all(8.0),
+                                  child: Center(
+                                    child: Text(
+                                      'Color $index',
+                                      style: TextStyle(
+                                        color: colors.value[index].onColor(),
+                                      ),
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
-                          ),
-                          SizedBox(width: 16, height: 10),
-                        ],
-                      );
-                    },
-                  ),
-                ),
+                              SizedBox(width: 16, height: 10),
+                            ],
+                          );
+                        },
+                      ),
+                    ),
 
-                SchemePreview(
-                  label: "",
-                  scheme: scheme.watch(context),
-                  brightness: Brightness.light,
-                  seed: scheme.value.primary,
+                    SchemePreview(
+                      label: "",
+                      scheme: scheme.watch(context),
+                      brightness: Brightness.light,
+                      seed: scheme.value.primary,
+                    ),
+                  ],
                 ),
               ],
             ),
